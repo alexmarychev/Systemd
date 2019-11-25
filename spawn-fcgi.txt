@@ -1,0 +1,228 @@
+[root@lvm vagrant]# yum install epel-release -y && yum install spawn-fcgi php php-cli mod_fcgid httpd -y
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-11 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================================================
+ Package                                               Arch                                            Version                                        Repository                                       Size
+============================================================================================================================================================================================================
+Installing:
+ epel-release                                          noarch                                          7-11                                           extras                                           15 k
+
+Transaction Summary
+============================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 15 k
+Installed size: 24 k
+Downloading packages:
+epel-release-7-11.noarch.rpm                                                                                                                                                         |  15 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-11.noarch                                                                                                                                                                 1/1 
+  Verifying  : epel-release-7-11.noarch                                                                                                                                                                 1/1 
+
+Installed:
+  epel-release.noarch 0:7-11                                                                                                                                                                                
+
+Complete!
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+epel/x86_64/metalink                                                                                                                                                                 |  26 kB  00:00:00     
+ * base: mirror.reconn.ru
+ * epel: fedora-mirror02.rbc.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+epel                                                                                                                                                                                 | 5.3 kB  00:00:00     
+(1/3): epel/x86_64/group_gz                                                                                                                                                          |  90 kB  00:00:00     
+(2/3): epel/x86_64/updateinfo                                                                                                                                                        | 1.0 MB  00:00:00     
+(3/3): epel/x86_64/primary_db                                                                                                                                                        | 6.9 MB  00:00:08     
+Resolving Dependencies
+--> Running transaction check
+---> Package httpd.x86_64 0:2.4.6-90.el7.centos will be installed
+--> Processing Dependency: httpd-tools = 2.4.6-90.el7.centos for package: httpd-2.4.6-90.el7.centos.x86_64
+--> Processing Dependency: /etc/mime.types for package: httpd-2.4.6-90.el7.centos.x86_64
+--> Processing Dependency: libaprutil-1.so.0()(64bit) for package: httpd-2.4.6-90.el7.centos.x86_64
+--> Processing Dependency: libapr-1.so.0()(64bit) for package: httpd-2.4.6-90.el7.centos.x86_64
+---> Package mod_fcgid.x86_64 0:2.3.9-6.el7 will be installed
+---> Package php.x86_64 0:5.4.16-46.1.el7_7 will be installed
+--> Processing Dependency: php-common(x86-64) = 5.4.16-46.1.el7_7 for package: php-5.4.16-46.1.el7_7.x86_64
+---> Package php-cli.x86_64 0:5.4.16-46.1.el7_7 will be installed
+---> Package spawn-fcgi.x86_64 0:1.6.3-5.el7 will be installed
+--> Running transaction check
+---> Package apr.x86_64 0:1.4.8-5.el7 will be installed
+---> Package apr-util.x86_64 0:1.5.2-6.el7 will be installed
+---> Package httpd-tools.x86_64 0:2.4.6-90.el7.centos will be installed
+---> Package mailcap.noarch 0:2.1.41-2.el7 will be installed
+---> Package php-common.x86_64 0:5.4.16-46.1.el7_7 will be installed
+--> Processing Dependency: libzip.so.2()(64bit) for package: php-common-5.4.16-46.1.el7_7.x86_64
+--> Running transaction check
+---> Package libzip.x86_64 0:0.10.1-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================================================
+ Package                                          Arch                                        Version                                                    Repository                                    Size
+============================================================================================================================================================================================================
+Installing:
+ httpd                                            x86_64                                      2.4.6-90.el7.centos                                        base                                         2.7 M
+ mod_fcgid                                        x86_64                                      2.3.9-6.el7                                                base                                          79 k
+ php                                              x86_64                                      5.4.16-46.1.el7_7                                          updates                                      1.4 M
+ php-cli                                          x86_64                                      5.4.16-46.1.el7_7                                          updates                                      2.7 M
+ spawn-fcgi                                       x86_64                                      1.6.3-5.el7                                                epel                                          18 k
+Installing for dependencies:
+ apr                                              x86_64                                      1.4.8-5.el7                                                base                                         103 k
+ apr-util                                         x86_64                                      1.5.2-6.el7                                                base                                          92 k
+ httpd-tools                                      x86_64                                      2.4.6-90.el7.centos                                        base                                          91 k
+ libzip                                           x86_64                                      0.10.1-8.el7                                               base                                          48 k
+ mailcap                                          noarch                                      2.1.41-2.el7                                               base                                          31 k
+ php-common                                       x86_64                                      5.4.16-46.1.el7_7                                          updates                                      565 k
+
+Transaction Summary
+============================================================================================================================================================================================================
+Install  5 Packages (+6 Dependent packages)
+
+Total download size: 7.8 M
+Installed size: 27 M
+Downloading packages:
+(1/11): apr-util-1.5.2-6.el7.x86_64.rpm                                                                                                                                              |  92 kB  00:00:00     
+(2/11): libzip-0.10.1-8.el7.x86_64.rpm                                                                                                                                               |  48 kB  00:00:00     
+(3/11): httpd-tools-2.4.6-90.el7.centos.x86_64.rpm                                                                                                                                   |  91 kB  00:00:00     
+(4/11): apr-1.4.8-5.el7.x86_64.rpm                                                                                                                                                   | 103 kB  00:00:00     
+(5/11): mailcap-2.1.41-2.el7.noarch.rpm                                                                                                                                              |  31 kB  00:00:00     
+(6/11): mod_fcgid-2.3.9-6.el7.x86_64.rpm                                                                                                                                             |  79 kB  00:00:00     
+warning: /var/cache/yum/x86_64/7/epel/packages/spawn-fcgi-1.6.3-5.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY                                  ] 813 kB/s | 851 kB  00:00:08 ETA 
+Public key for spawn-fcgi-1.6.3-5.el7.x86_64.rpm is not installed
+(7/11): spawn-fcgi-1.6.3-5.el7.x86_64.rpm                                                                                                                                            |  18 kB  00:00:00     
+(8/11): php-common-5.4.16-46.1.el7_7.x86_64.rpm                                                                                                                                      | 565 kB  00:00:01     
+(9/11): php-5.4.16-46.1.el7_7.x86_64.rpm                                                                                                                                             | 1.4 MB  00:00:01     
+(10/11): httpd-2.4.6-90.el7.centos.x86_64.rpm                                                                                                                                        | 2.7 MB  00:00:03     
+(11/11): php-cli-5.4.16-46.1.el7_7.x86_64.rpm                                                                                                                                        | 2.7 MB  00:00:02     
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                       2.2 MB/s | 7.8 MB  00:00:03     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : apr-1.4.8-5.el7.x86_64                                                                                                                                                                  1/11 
+  Installing : apr-util-1.5.2-6.el7.x86_64                                                                                                                                                             2/11 
+  Installing : httpd-tools-2.4.6-90.el7.centos.x86_64                                                                                                                                                  3/11 
+  Installing : libzip-0.10.1-8.el7.x86_64                                                                                                                                                              4/11 
+  Installing : php-common-5.4.16-46.1.el7_7.x86_64                                                                                                                                                     5/11 
+  Installing : php-cli-5.4.16-46.1.el7_7.x86_64                                                                                                                                                        6/11 
+  Installing : mailcap-2.1.41-2.el7.noarch                                                                                                                                                             7/11 
+  Installing : httpd-2.4.6-90.el7.centos.x86_64                                                                                                                                                        8/11 
+  Installing : mod_fcgid-2.3.9-6.el7.x86_64                                                                                                                                                            9/11 
+  Installing : php-5.4.16-46.1.el7_7.x86_64                                                                                                                                                           10/11 
+  Installing : spawn-fcgi-1.6.3-5.el7.x86_64                                                                                                                                                          11/11 
+  Verifying  : mod_fcgid-2.3.9-6.el7.x86_64                                                                                                                                                            1/11 
+  Verifying  : php-cli-5.4.16-46.1.el7_7.x86_64                                                                                                                                                        2/11 
+  Verifying  : spawn-fcgi-1.6.3-5.el7.x86_64                                                                                                                                                           3/11 
+  Verifying  : mailcap-2.1.41-2.el7.noarch                                                                                                                                                             4/11 
+  Verifying  : httpd-tools-2.4.6-90.el7.centos.x86_64                                                                                                                                                  5/11 
+  Verifying  : apr-util-1.5.2-6.el7.x86_64                                                                                                                                                             6/11 
+  Verifying  : httpd-2.4.6-90.el7.centos.x86_64                                                                                                                                                        7/11 
+  Verifying  : apr-1.4.8-5.el7.x86_64                                                                                                                                                                  8/11 
+  Verifying  : libzip-0.10.1-8.el7.x86_64                                                                                                                                                              9/11 
+  Verifying  : php-5.4.16-46.1.el7_7.x86_64                                                                                                                                                           10/11 
+  Verifying  : php-common-5.4.16-46.1.el7_7.x86_64                                                                                                                                                    11/11 
+
+Installed:
+  httpd.x86_64 0:2.4.6-90.el7.centos        mod_fcgid.x86_64 0:2.3.9-6.el7        php.x86_64 0:5.4.16-46.1.el7_7        php-cli.x86_64 0:5.4.16-46.1.el7_7        spawn-fcgi.x86_64 0:1.6.3-5.el7       
+
+Dependency Installed:
+  apr.x86_64 0:1.4.8-5.el7  apr-util.x86_64 0:1.5.2-6.el7  httpd-tools.x86_64 0:2.4.6-90.el7.centos  libzip.x86_64 0:0.10.1-8.el7  mailcap.noarch 0:2.1.41-2.el7  php-common.x86_64 0:5.4.16-46.1.el7_7 
+
+Complete!
+
+[root@lvm vagrant]# vi /etc/sysconfig/spawn-fcgi 
+
+[root@lvm vagrant]# cat /etc/sysconfig/spawn-fcgi 
+# You must set some working options before the "spawn-fcgi" service will work.
+# If SOCKET points to a file, then this file is cleaned up by the init script.
+#
+# See spawn-fcgi(1) for all possible options.
+#
+# Example :
+SOCKET=/var/run/php-fcgi.sock
+OPTIONS="-u apache -g apache -s $SOCKET -S -M 0600 -C 32 -F 1 -- /usr/bin/php-cgi"
+
+[root@lvm vagrant]# vi /etc/systemd/system/spawn-fcgi.service
+
+[root@lvm vagrant]# cat /etc/systemd/system/spawn-fcgi.service
+[Unit]
+Description=Spawn-fcgi startup service by Otus
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/var/run/spawn-fcgi.pid
+EnvironmentFile=/etc/sysconfig/spawn-fcgi
+ExecStart=/usr/bin/spawn-fcgi -n $OPTIONS
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+[root@lvm vagrant]# systemctl start spawn-fcgi
+
+[root@lvm vagrant]# systemctl status spawn-fcgi
+● spawn-fcgi.service - Spawn-fcgi startup service by Otus
+   Loaded: loaded (/etc/systemd/system/spawn-fcgi.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu 2019-11-21 13:48:09 UTC; 3s ago
+ Main PID: 4241 (php-cgi)
+   CGroup: /system.slice/spawn-fcgi.service
+           ├─4241 /usr/bin/php-cgi
+           ├─4242 /usr/bin/php-cgi
+           ├─4243 /usr/bin/php-cgi
+           ├─4244 /usr/bin/php-cgi
+           ├─4245 /usr/bin/php-cgi
+           ├─4246 /usr/bin/php-cgi
+           ├─4247 /usr/bin/php-cgi
+           ├─4248 /usr/bin/php-cgi
+           ├─4249 /usr/bin/php-cgi
+           ├─4250 /usr/bin/php-cgi
+           ├─4251 /usr/bin/php-cgi
+           ├─4252 /usr/bin/php-cgi
+           ├─4253 /usr/bin/php-cgi
+           ├─4254 /usr/bin/php-cgi
+           ├─4255 /usr/bin/php-cgi
+           ├─4256 /usr/bin/php-cgi
+           ├─4257 /usr/bin/php-cgi
+           ├─4258 /usr/bin/php-cgi
+           ├─4259 /usr/bin/php-cgi
+           ├─4260 /usr/bin/php-cgi
+           ├─4261 /usr/bin/php-cgi
+           ├─4262 /usr/bin/php-cgi
+           ├─4263 /usr/bin/php-cgi
+           ├─4264 /usr/bin/php-cgi
+           ├─4265 /usr/bin/php-cgi
+           ├─4266 /usr/bin/php-cgi
+           ├─4267 /usr/bin/php-cgi
+           ├─4268 /usr/bin/php-cgi
+           ├─4269 /usr/bin/php-cgi
+           ├─4270 /usr/bin/php-cgi
+           ├─4271 /usr/bin/php-cgi
+           ├─4272 /usr/bin/php-cgi
+           └─4273 /usr/bin/php-cgi
+
+Nov 21 13:48:09 lvm systemd[1]: Started Spawn-fcgi startup service by Otus.
+Nov 21 13:48:09 lvm systemd[1]: Starting Spawn-fcgi startup service by Otus...
+

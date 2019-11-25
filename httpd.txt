@@ -1,0 +1,83 @@
+[root@lvm vagrant]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:httpd(8)
+           man:apachectl(8)
+
+[root@lvm vagrant]# vi /usr/lib/systemd/system/httpd.service 
+
+[root@lvm vagrant]# systemctl cat httpd
+# /usr/lib/systemd/system/httpd.service
+[Unit]
+Description=The Apache HTTP Server
+After=network.target remote-fs.target nss-lookup.target
+Documentation=man:httpd(8)
+Documentation=man:apachectl(8)
+
+[Service]
+Type=notify
+EnvironmentFile=/etc/sysconfig/httpd-%I
+ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND
+ExecReload=/usr/sbin/httpd $OPTIONS -k graceful
+ExecStop=/bin/kill -WINCH ${MAINPID}
+# We want systemd to give httpd some time to finish gracefully, but still want
+# it to kill httpd after TimeoutStopSec if something went wrong during the
+# graceful stop. Normally, Systemd sends SIGTERM signal right after the
+# ExecStop, which would kill httpd. We are sending useless SIGCONT here to give
+# httpd time to finish.
+KillSignal=SIGCONT
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+[root@lvm vagrant]# vi /etc/sysconfig/httpd-first
+
+[root@lvm vagrant]# cat /etc/sysconfig/httpd-first
+OPTIONS=-f conf/first.conf
+
+[root@lvm vagrant]# vi /etc/sysconfig/httpd-second
+
+[root@lvm vagrant]# cat /etc/sysconfig/httpd-first
+OPTIONS=-f conf/first.conf
+
+[root@lvm vagrant]# vi /etc/sysconfig/httpd-second
+
+[root@lvm vagrant]# cat /etc/sysconfig/httpd-second 
+OPTIONS=-f conf/second.conf
+     
+[root@lvm vagrant]# cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/first.conf
+
+[root@lvm vagrant]# cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/second.conf
+
+[root@lvm vagrant]# vi /etc/httpd/conf/first.conf 
+
+[root@lvm vagrant]# vi /etc/httpd/conf/second.conf 
+
+[root@lvm vagrant]# grep -E -i "listen|Pid" /etc/httpd/conf/first.conf 
+# least PidFile.
+# Listen: Allows you to bind Apache to specific IP addresses and/or
+# Change this to Listen on specific IP addresses as shown below to 
+#Listen 12.34.56.78:80
+Listen 80
+PidFile	/var/run/httpd-first.pid
+
+[root@lvm vagrant]# grep -E -i "listen|Pid" /etc/httpd/conf/second.conf 
+# least PidFile.
+# Listen: Allows you to bind Apache to specific IP addresses and/or
+# Change this to Listen on specific IP addresses as shown below to 
+#Listen 12.34.56.78:80
+Listen 8080
+PidFile	/var/run/httpd-second.pid
+    
+[root@lvm vagrant]# cp /usr/lib/systemd/system/httpd.service /etc/systemd/system/httpd@.service
+
+[root@lvm vagrant]# systemctl start httpd@first
+
+[root@lvm vagrant]# systemctl start httpd@second
+
+[root@lvm vagrant]# ss -antup | grep httpd
+tcp    LISTEN     0      128      :::8080                 :::*                   users:(("httpd",pid=4461,fd=4),("httpd",pid=4460,fd=4),("httpd",pid=4459,fd=4),("httpd",pid=4458,fd=4),("httpd",pid=4457,fd=4),("httpd",pid=4456,fd=4),("httpd",pid=4455,fd=4))
+tcp    LISTEN     0      128      :::80                   :::*                   users:(("httpd",pid=4448,fd=4),("httpd",pid=4447,fd=4),("httpd",pid=4446,fd=4),("httpd",pid=4445,fd=4),("httpd",pid=4444,fd=4),("httpd",pid=4443,fd=4),("httpd",pid=4442,fd=4))
+
