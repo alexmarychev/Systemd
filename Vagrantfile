@@ -70,9 +70,9 @@ Vagrant.configure("2") do |config|
             cp ~vagrant/.ssh/auth* ~root/.ssh
             yum install -y mdadm smartmontools hdparm gdisk
           SHELL
- 	box.vm.provision "file", source: "/home/alexmar/Systemd/jira.service", destination: "/home/vagrant/" 
-	box.vm.provision "file", source: "/home/alexmar/current.tar.gz", destination: "/home/vagrant/"
-	box.vm.provision "shell", path: "jira.sh"
+	box.vm.provision "file", source: "./scripts/.", destination: "/home/vagrant/"
+	box.vm.provision "file", source: "../current.tar.gz", destination: "/home/vagrant/"
+	box.vm.provision "shell", path: "install.sh"
         end
     end
   end

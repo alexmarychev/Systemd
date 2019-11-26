@@ -1,0 +1,9 @@
+[Unit]
+Description=My watchlog service
+
+[Service]
+Type=oneshot
+User=root
+EnvironmentFile=/etc/sysconfig/watchlog
+ExecStart=/opt/watchlog.sh $WORD $LOG
+
